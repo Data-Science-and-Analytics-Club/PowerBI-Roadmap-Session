@@ -431,11 +431,93 @@ Y-Axis -> Sales
 
 ![alt text](readme_images2/image-22.png)
 
-## New Table using DAX Quries
+## New Table using DAX Queries
 
 ### Step 31 : Go to `Table View` -> `New Table`
 
 Query : **SalesForecast = SUMMARIZE('SuperStore_Sales_Dataset', SuperStore_Sales_Dataset[Order Date], "Total Sales", SUM(SuperStore_Sales_Dataset[Sales]))**
+
+## ✅ Summary - Power BI Session 2
+
+In **Power BI Session 2**, we focused on advanced visualization techniques, DAX measures, and forecasting to derive actionable insights from the `SuperStore.csv` dataset.
+
+---
+
+### 🔍 Key Topics Covered
+
+#### 🧼 Data Cleaning using Power Query
+
+- Replaced incorrect values in the `Returns` column (e.g., changed text "N/A" to "0" or "1")
+- Checked column quality and data types
+- Removed extra/empty columns
+
+#### 📊 Advanced Visualizations
+
+- Clustered Bar Charts for:
+  - Sales by Category
+  - Top 3 Sub-Categories by Sales
+  - Sales by Ship Mode
+- Stacked Area Chart for:
+  - Monthly Sales Comparison
+  - Year-over-Year (YoY) Profit Analysis
+- Donut Charts for:
+  - Sales by Segment
+  - Payment Modes
+- Map Visuals for:
+  - Sales by State (Bubble Size)
+  - Profit (as Tooltip)
+- Slicers:
+  - Region Filter (Formatted as Tiles)
+- KPI Cards:
+  - Total Sales
+  - Total Profit
+  - Total Quantity
+- Visual Styling:
+  - Background gradients, rounded borders, transparency
+  - Customized axes, bar colors, titles, and alignment
+
+#### 🧠 Insightful DAX Measures
+
+- `AvgDelivery` – Average delivery time between order and ship date
+- `TotalDelivery` – Total number of deliveries
+- `LateDelivers` – Deliveries taking more than 5 days
+- `ReturnRate` – Percentage of returned orders per product
+
+```dax
+ReturnRate =
+DIVIDE(
+    CALCULATE(COUNTROWS('SuperStore_Sales_Dataset'), 'SuperStore_Sales_Dataset'[Returns] = "1"),
+    CALCULATE(COUNTROWS('SuperStore_Sales_Dataset'))
+)
+```
+
+### 📈 Forecasting
+
+- Created **Line Chart** using:
+  - **X-Axis**: `Order Date`
+  - **Y-Axis**: `Sales`
+- Enabled **Forecasting** via the analytics pane
+- Configured:
+  - **Confidence interval**
+  - **Forecast length** (e.g., 10 days)
+- Removed **year/month hierarchy** to allow **daily forecast**
+- Enabled **zoom slider** and **timeline navigation**
+
+---
+
+### 📋 Custom Table Using DAX
+
+Created a new table to summarize sales by order date:
+
+```dax
+SalesForecast =
+SUMMARIZE(
+    'SuperStore_Sales_Dataset',
+    'SuperStore_Sales_Dataset'[Order Date],
+    "Total Sales",
+    SUM('SuperStore_Sales_Dataset'[Sales])
+)
+```
 
 ### Author
 
