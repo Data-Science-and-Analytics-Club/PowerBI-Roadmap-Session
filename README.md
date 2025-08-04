@@ -1,4 +1,9 @@
-# Power BI Roadmap - Session 1 Notes
+# PowerBI RoadmAP Session NOtes
+
+- [Session 1 Notes](#power-bi-roadmap---session-1-notes)
+- [Session 2 Notes](#power-bi-roadmap---session-2-notes)
+
+## Power BI Roadmap - Session 1 Notes
 
 **Date:** Monday, 28/07/2025
 **Session:** Introduction to Power BI
