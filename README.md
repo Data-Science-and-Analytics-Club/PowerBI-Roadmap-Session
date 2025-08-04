@@ -227,7 +227,217 @@ During the session, we:
 
 ---
 
+# Power BI Roadmap - Session 2 Notes
+
+PowerBI Session 2 will consist of **Advanced Data Visualisation** techquines, **Dax Measures** and **Forecasting**
+
+## Pre-requiste step of Data Cleaning before Visualisation
+
+### Step1 : Make sure to download `SuperStore.csv` from datasets
+
+### Step 2 : `Get Data` -> `Text/csv` Data source and select `SuperStore.csv` from your local machine, make sure to click on `Transform Data` to open in Power Query Editor
+
+![alt text](readme_images2/image.png)
+
+### Step 3 : Analyse the Data Types of each Column and the values present in each column
+
+### Step 4 : Quick check the columns by doing `Ctrl + A` to select all columns then doing to `View` and selecting `Column Quality`
+
+![alt text](readme_images2/image-2.png)
+
+### Step 5 : Change Value of `Return` Column
+
+Select the `Returns` Column and Right-Click to select the `Replace Values` Option
+
+![alt text](readme_images2/image-3.png)
+
+![alt text](readme_images2/image-4.png)
+
+### Step 6 : Remove the last 2 empy columns
+
+Slect the last 2 columns and Right Click to `Remove Columns`
+![alt text](readme_images2/image-5.png)
+
+### Step 7 : Review the Steps in `Applied Steps` and then `Close & Apply` to Save and Load the changes
+
+## Data Visualisation using Dashboard in PowerBI
+
+### Step 8 : in the `Report View`, You can see all the columns in the `Data` Section as well as the Superstore Table and all its corrosponding Columns
+
+### Step 9 : Select `Clustered Bar Chart`,
+
+**X-Axis -> Category**
+
+**Y-Axis -> Sales**  
+![alt text](readme_images2/image-6.png)
+
+### Step 10 : Change background by selecting `Format your report Page` [Click anywhere on the canvas] and `Canvas Background` to select background gradient
+
+### Step 11 : Select on the Clustered Bar Chart, then `Format Your Visual` to change the visualisation formatting
+
+`General` -> `Effects` -> `Change Background Transperancy` [85%]
+
+`General` -> `Effects` -> `Visual Border` ->
+Change Border Color, Rounded Borders
+
+`General` -> `Title` -> `Text` :
+**Sales By Category**
+
+`Horizontal Alignment` -> `Center`
+
+`Visual` -> `Y- axis` -> `Values` : Color change, Maximum Width
+
+`Visual` -> `X-axis` -> Values : off
+
+`Visual` -> **Data Label** : ON
+
+`Visual` -> **Bars** to change color
+
+![alt text](readme_images2/image-7.png)
+
+### Step 12 : Filtering and Sales by Top Sub Categories
+
+Copy Paste the **Sales By Category** Bar chart
+
+Edit the _Y-axis_ in the `Visualisation` Tab to add `Sub-Category` in Y-axis and remove `Category`
+
+Filtering : Select `Filter Type` -> `Top N` -> 3
+
+`By Value` -> Drag and Drop Sales from Data and apply filters
+
+![alt text](readme_images2/image-8.png)
+
+### Step 13 : Create similar Chart for **Sales by Ship Mode**
+
+![alt text](readme_images2/image-9.png)
+
+### Step 14 : Add `Stacked Area Chart` to show 2-Year monthly comparision
+
+**X-axis** -> `Order Date`
+
+**Y-axis** -> `Sales`
+
+![alt text](readme_images2/image-10.png)
+
+Make sure to add `Order Date` in `Legend` and Right-Click to select `Date Hierarchy`
+
+Remove **Year**, **Quator** from X-axis
+
+### Step 15 : Make Similar Chart for YoY Profits
+
+![alt text](readme_images2/image-12.png)
+
+### Step 16 : Enabling Map
+
+`File` -> `Options and Settings` -> `Options` -> `Security`
+
+Select OK and Restart PowerBI
+![alt text](readme_images2/image-11.png)
+
+### Step 17 : Add Map on the dashboard and drag and drop `State` onto the Map (Y-axis)
+
+Add `Sales` to the `Bubblesize`
+
+Add `Profits` to the `ToolTips`
+
+You can copy the format using Format Painter and change the Style of Map in `Map Settings` in Visualisation
+
+![alt text](readme_images2/image-13.png)
+
+### Step 18 : Add `Donut Chart`
+
+**Legend** -> **Segment**
+
+**Values** -> **Sales**
+
+### Step 19 : Create Similar Donout Chart for Modes of Payment
+
+![alt text](readme_images2/image-14.png)
+
+### Step 20 : Add Slicer By Region
+
+Add `Slicer` From Visualization Tab, Then aadd `Region` to the fields, change the Format to **Tiles**
+
+![alt text](readme_images2/image-15.png)
+
+### Step 21 : Add textbox and other prettification of your choice
+
+### Step 22 : KPI Display
+
+Add **Card**
+
+Then Add Fields, `Sales`, `Quantity`, `Profit`
+for each card
+
+![alt text](readme_images2/image-16.png)
+
+## DAX Queries and Analysis, Column Measure
+
+### Step 23 : Select `Table View` and then Sleect **New Column**
+
+### Step 24 : Specify the `DAX Query`
+
+**AvgDelivery = DATEDIFF('SuperStore_Sales_Dataset'[Order Date], 'SuperStore_Sales_Dataset'[Ship Date], DAY)**
+
+![alt text](readme_images2/image-17.png)
+
+Click Enter to populate the New Column
+
+Add Card in the `Report View` to add the Average Delivery Time
+
+### Step 25 Queries
+
+#### Total Number of Deliveries
+
+Measure : **TotalDelivery = COUNTROWS('SuperStore_Sales_Dataset')**
+
+#### No of Late Delivers
+
+Measure : **LateDelivers = CALCULATE(COUNTROWS('SuperStore_Sales_Dataset'), DATEDIFF('SuperStore_Sales_Dataset'[Order Date], 'SuperStore_Sales_Dataset'[Ship Date], DAY) > 5)**
+
+### Return Rate BY Product Name
+
+Measure :
+ReturnRate =
+DIVIDE(
+CALCULATE(COUNTROWS('SuperStore_Sales_Dataset'), 'SuperStore_Sales_Dataset'[Returns] = "1"),
+CALCULATE(COUNTROWS('SuperStore_Sales_Dataset'))
+)
+
+![alt text](readme_images2/image-18.png)
+
+## Sales Forecasting
+
+### Step 26 : Create New Sheet and Add `Line Chart`
+
+Forecasting can be done only on **Line Chart**
+
+X-Axis -> Order Date
+Y-Axis -> Sales
+
+### Step 27 : Remove `Year`, `Month`, `Quater` from X axis and Select by **Order Date**
+
+![alt text](readme_images2/image-19.png)
+
+### Step 28 : Select `Add Futhur Analyses to your Visual` from Visualisation Tab and enable Forecast
+
+![alt text](readme_images2/image-20.png)
+
+### Step 29 : Select the appropiate Units -> Days and Confidence Interval to get forecast
+
+![alt text](readme_images2/image-21.png)
+
+### Step 30 : Add Zoom Sliders and Unit Changes
+
+![alt text](readme_images2/image-22.png)
+
+## New Table using DAX Quries
+
+### Step 31 : Go to `Table View` -> `New Table`
+
+Query : **SalesForecast = SUMMARIZE('SuperStore_Sales_Dataset', SuperStore_Sales_Dataset[Order Date], "Total Sales", SUM(SuperStore_Sales_Dataset[Sales]))**
+
 ### Author
 
 _Prepared by Yash Baviskar_  
-_Power BI Roadmap - Session 1_
+_Power BI Roadmap - Session 1_ _and_ _2_
