@@ -1,4 +1,4 @@
-# PowerBI RoadmAP Session Notes
+# PowerBI Roadmap Session Notes
 
 - [Session 1 Notes](#power-bi-roadmap---session-1-notes)
 - [Session 2 Notes](#power-bi-roadmap---session-2-notes)
