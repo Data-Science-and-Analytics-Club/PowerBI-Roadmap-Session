@@ -2,6 +2,7 @@
 
 - [Session 1 Notes](#power-bi-roadmap---session-1-notes)
 - [Session 2 Notes](#power-bi-roadmap---session-2-notes)
+- [Session 3 Notes](#power-bi-project-based-session---session-3-notes)
 
 ## Power BI Roadmap - Session 1 Notes
 
@@ -523,6 +524,67 @@ SUMMARIZE(
     SUM('SuperStore_Sales_Dataset'[Sales])
 )
 ```
+
+## Power BI Project Based Session - Session 3 Notes
+
+## Capstone Project Guidelines
+
+**Website:** [https://data-science-and-analytics-club.github.io/PowerBI-Datasets/](https://data-science-and-analytics-club.github.io/PowerBI-Datasets/)
+
+---
+
+## 📌 Dataset Selection
+
+- Choose **one dataset** that you understand well, especially the **meaning of each column**.
+- Some datasets may be **unclean** or **annoying to deal with** — this is intentional to simulate **real-world data challenges**.
+
+---
+
+## 🛠 Data Preparation
+
+1. **Load data into Power Query Editor** before working on it in Power BI.
+2. **Check data formats**:
+   - Ensure **date columns** are actually set as _Date_ type.
+3. **Handle empty values**:
+   - Use **Transform → Replace Values** to replace empty cells with `null` or any other appropriate placeholder.
+4. **Remove redundant columns**:
+   - Delete columns like indexes or any that do not add value to your analysis.
+
+---
+
+## 📊 Analysis & Visualization
+
+1. **Identify the X-axis and Y-axis** you need for each question.
+2. Use the **Filter section** to:
+   - Apply **Top N** filtering
+   - Apply **basic filters**
+   - Combine **multiple filtering rules**
+3. **Add data labels** to improve readability.
+4. **Choose the right graph type**:
+   - Bar chart
+   - Pie chart
+   - Area chart
+   - Line graph
+   - Other charts depending on the insight you want to show.
+
+---
+
+## 🔍 Problem-Solving Approach
+
+- You can use **notes, online resources, or any reference material** to help solve questions.
+- **Tackle problems head-on** — some questions will be intentionally harder and might require exploring concepts **not yet taught**.
+- Use this as an opportunity to **explore and learn independently**.
+
+---
+
+## 💡 Additional Insights
+
+- Go beyond the given questions:
+  - Define and display **basic KPIs** (Key Performance Indicators) to understand your dataset better.
+  - Example KPIs: Total Sales, Average Price, Number of Items Sold, Customer Count, etc.
+- Look for **patterns, anomalies, and trends** in your dataset.
+
+---
 
 ### Author
 
